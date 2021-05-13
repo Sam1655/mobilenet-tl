@@ -19,7 +19,7 @@ if upload is not None:
   img = Image.open(upload)
   st.image(img,caption='Uploaded Image',width=300)
   model = load_model()
-  if st.sidebar.button('PREDICT'):
+  if st.button('PREDICT'):
     st.write("Result:")
     x = cv2.resize(opencv_image,(224,224))
     x = np.expand_dims(x,axis=0)
