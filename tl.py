@@ -20,7 +20,7 @@ if upload is not None:
   st.image(img,caption='Uploaded Image',width=300)
   model = load_model()
   if st.sidebar.button('PREDICT'):
-    st.sidebar.write("Result:")
+    st.write("Result:")
     x = cv2.resize(opencv_image,(224,224))
     x = np.expand_dims(x,axis=0)
     x = preprocess_input(x)
@@ -29,5 +29,4 @@ if upload is not None:
     # print the classification
     for i in range(3):
       out = label[0][i]
-      st.sidebar.title('%s (%.2f%%)' % (out[1], out[2]*100))
-  
+      st.title('%s (%.2f%%)' % (out[1], out[2]*100))
